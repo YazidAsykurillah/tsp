@@ -24,6 +24,23 @@
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
+      
+      <li {{{ (Request::is('issue') ? 'class=active' : '') }}}>
+        <a href="{{ URL::to('issue') }}">
+          <i class="fa fa-exclamation-triangle"></i> <span>Kerusakan / Kendala</span>
+        </a>
+      </li>
+      
+      <li {{{ (Request::is('user') ? 'class=active' : '') }}}>
+        <a href="{{ URL::to('user') }}">
+          <i class="fa fa-users"></i> <span>Karyawan</span>
+        </a>
+      </li>
+      <li {{{ (Request::is('item/*') ? 'class=active' : '') }}}>
+        <a href="{{ URL::to('item') }}">
+          <i class="fa fa-book"></i> <span>Perangkat</span>
+        </a>
+      </li>
       @if(\Auth::user()->can('access-configuration'))
       <li class="treeview {{{ (Request::is('configuration*') ? 'active':'') }}}">
         <a href="#">

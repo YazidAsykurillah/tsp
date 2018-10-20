@@ -23,20 +23,22 @@
     <div class="col-lg-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-             	<h3 class="box-title">User List</h3>
-              	<a href="{{ URL::to('user/create')}}" class="btn btn-primary pull-right" title="Create new user">
-                	<i class="fa fa-plus"></i>&nbsp;Add New
+             	<h3 class="box-title"><i class="fa fa-exclamation-triangle"></i> Daftar Kerusakan</h3>
+              	<a href="{{ URL::to('issue/create')}}" class="btn btn-primary pull-right" title="Create new issue">
+                	<i class="fa fa-plus"></i>&nbsp;Create
               	</a>
             </div><!-- /.box-header -->
             <div class="box-body">
             	<div class="table-responsive">
-                	<table class="table table-bordered" id="table-user">
+                	<table class="table table-bordered" id="table-issue">
                   		<thead>
 		                    <tr>
 		                     	<th style="width:5%;">#</th>
-		                      	<th>Code</th>
-		                      	<th>Name</th>
-		                      	<th>Jumlah Asesi</th>
+		                      	<th>Perangkat</th>
+                            <th>Pelapor</th>
+                            <th>Keterangan</th>
+		                      	<th>PIC</th>
+		                      	<th>Status</th>
 		                      	<th style="width:10%;text-align:center;">Actions</th>
 		                    </tr>
                   		</thead>
@@ -50,6 +52,8 @@
                       			<th></th>
                       			<th></th>
                       			<th></th>
+                            <th></th>
+                            <th></th>
                       			<th></th>
                     		</tr>
                   		</tfoot>

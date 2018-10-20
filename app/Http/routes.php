@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::post('item/delete', 'ItemController@delete');
+Route::resource('item', 'ItemController');
+
+//Datatables
+	Route::controller('datatables', 'DatatablesController',[
+		'getItems'=>'datatables.getItems',
+	]);

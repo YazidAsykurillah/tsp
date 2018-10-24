@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIssuesTable extends Migration
+class CreateRepairmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateIssuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('issues', function (Blueprint $table) {
+        Schema::create('repairments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code')->unique();
-            $table->integer('item_id');
-            $table->integer('reporter_id');
-            $table->text('description');
-            $table->enum('status', ['queued', 'processing', 'finished'])->default('queued');
+            $table->integer('issue_id');
+            $table->integer('pic_id');
+            $table->text('action');
+            $table->boolean('is_completed');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateIssuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('issues');
+        Schema::drop('repairments');
     }
 }

@@ -123,18 +123,6 @@
     <!-- Bootstrap Core JavaScript -->
     {!! Html::script('js/bootstrap/bootstrap.js') !!}
 
-    <!--Chart JS-->
-    {!! Html::script('bower_components/Chart.js/Chart.js') !!}
-
-    <!-- FLOT CHARTS -->
-      {!! Html::script('bower_components/Flot/jquery.flot.js') !!}
-      <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-      {!! Html::script('bower_components/Flot/jquery.flot.resize.js') !!}
-      <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-      {!! Html::script('bower_components/Flot/jquery.flot.pie.js') !!}
-      <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-      {!! Html::script('bower_components/Flot/jquery.flot.categories.js') !!}
-
     <!-- Admin LTE Core JavaScript -->
     {!! Html::script('js/admin-lte/app.js') !!}
 

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>TSP</title>
+    <title>PT XYZ</title>
     <!-- Font Awesome CSS -->
     {!! Html::style('css/font-awesome/font-awesome.css') !!}
 
@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="{{ url('/') }}">TSP</a>
+                <a class="navbar-brand topnav" href="{{ url('/') }}">PT XYZ</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

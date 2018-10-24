@@ -4,5 +4,5 @@
     
   </div>
   <!-- Default to the left -->
-  <strong>Copyright &copy; <?php echo date('Y');?> <a href="#">TSP</a>.</strong> All rights reserved.
+  <strong>Copyright &copy; <?php echo date('Y');?> <a href="#">PT XYZ</a>.</strong> All rights reserved.
 </footer>

@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\StoreItemRequest;
-use App\Http\Requests\UpdateItemRequest;
-use App\Item;
 
-class ItemController extends Controller
+use App\User;
+use App\Item;
+use App\Issue;
+use App\Role;
+use App\Permission;
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +21,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return view('item.index');
+        //
     }
 
     /**
@@ -28,7 +31,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return view('item.create');
+        //
     }
 
     /**
@@ -37,15 +40,9 @@ class ItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreItemRequest $request)
+    public function store(Request $request)
     {
-        $newItem = new Item;
-        $newItem->code = 'ITEM-'.time();
-        $newItem->name = $request->name;
-        $newItem->description = $request->description;
-        $newItem->save();
-        return redirect('item')
-            ->with('successMessage', "Perangkat berhasil ditambahkan");
+        //
     }
 
     /**
@@ -56,9 +53,7 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        $item = Item::findOrFail($id);
-        return view('item.show')
-            ->with('item', $item);
+        //
     }
 
     /**
@@ -69,9 +64,7 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        $item = Item::findOrFail($id);
-        return view('item.edit')
-            ->with('item', $item);
+        //
     }
 
     /**
@@ -81,14 +74,9 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateItemRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $item = Item::findOrFail($id);
-        $item->name = $request->name;
-        $item->description = $request->description;
-        $item->save();
-        return redirect('item/'.$id)
-            ->with('successMessage', "Perangkat berhasil diperbarui");
+        //
     }
 
     /**
@@ -102,25 +90,26 @@ class ItemController extends Controller
         //
     }
 
-    public function delete(Request $request)
-    {
-        $item = Item::find($request->item_id);
-        $item->delete();
-        return redirect('item')
-            ->with('successMessage', "Item berhasil dihapus");
-    }
 
-    public function select2Item(Request $request){
+    public function select2UserToSetPIC(Request $request)
+    {
         $data = [];
 
         if($request->has('q')){
             $search = $request->q;
-            $data = Item::where('name','LIKE',"%$search%")
+            $data = User::with('roles')
+                    ->where('name','LIKE',"%$search%")
+                    ->whereHas('roles', function($query){
+                        $query->where('id', '=', 4);
+                    })
                     ->get();
         }
         else{
-            $search = $request->q;
-            $data = Item::all();
+            $data = User::with('roles')
+                    ->whereHas('roles', function($query){
+                        $query->where('id', '=', 4);
+                    })
+                    ->get();
         }
         return response()->json($data);
     }

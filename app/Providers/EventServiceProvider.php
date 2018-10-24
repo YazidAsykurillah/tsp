@@ -16,6 +16,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\SomeEvent' => [
             'App\Listeners\EventListener',
         ],
+        'App\Events\RepairmentIsCompleted' => [
+            'App\Listeners\ChangeIssueStatusToFinish',
+            'App\Listeners\LogRepairmentFinish',
+        ],
     ];
 
     /**

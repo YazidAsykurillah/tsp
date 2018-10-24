@@ -28,9 +28,13 @@ class AclTableSeeder extends Seeder
         $role_user = [
             //Super Admin
         	['role_id'=>1, 'user_id'=>1],
+            //Manager IT
         	['role_id'=>2, 'user_id'=>2],
+            //Admin IT
         	['role_id'=>3, 'user_id'=>3],
+            //IT Support
         	['role_id'=>4, 'user_id'=>4],
+            //OTH
         	['role_id'=>5, 'user_id'=>5],
         	['role_id'=>5, 'user_id'=>6],
         ];
@@ -41,8 +45,8 @@ class AclTableSeeder extends Seeder
         DB::table('permissions')->delete();
 
         $permissions = [
-            //Modul DPD
-            ['id'=>1, 'slug'=>'index-user', 'description'=>'Access index-user method'],
+            //Users management
+            ['id'=>1, 'slug'=>'create-user', 'description'=>'Access create-user method'],
         ];
 
         DB::table('permissions')->insert($permissions);
@@ -53,7 +57,7 @@ class AclTableSeeder extends Seeder
         DB::table('permission_role')->delete();
 
         $permission_role = [
-            //Permission for ADMINISTRATOR DPP
+            //Permission Role for Manager IT
             ['permission_id'=>1, 'role_id'=>2],
             
         ];
